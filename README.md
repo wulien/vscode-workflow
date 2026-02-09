@@ -1,78 +1,126 @@
-# VS Code Skills 系统 - AI 驱动的开发工作流
+# VS Code Custom Agents + Skills 开发工作流
 
-> 灵感来源: [obra/superpowers](https://github.com/obra/superpowers)
-> 适配 VS Code + GitHub Copilot 的可组合技能框架
-
----
+> 🚀 VS Code 官方 Custom Agents + obra/superpowers Skills = 终极开发环境
 
 ## 🎯 这是什么？
 
-一套完整的 AI 开发工作流系统，让 GitHub Copilot 按照最佳实践引导你开发：
+完整的 AI 驱动开发工作流系统，整合了：
 
+1. **VS Code 官方 Custom Agents** — 专门的 AI 开发助手，出现在 Agents 下拉菜单
+2. **obra/superpowers Skills** — 详细的开发流程文档和最佳实践
+3. **自动化工作流** — Handoffs 实现 Agent 间无缝协作
+
+**核心能力：**
 - ✅ **TDD 优先** — 先写测试，永远如此
 - ✅ **系统化调试** — 找根因，不修症状
 - ✅ **证据驱动** — 运行验证，不靠猜测
-- ✅ **多代理协作** — 并行开发复杂任务
+- ✅ **多 Agent 协作** — 并行开发复杂任务
 - ✅ **工作流自动化** — 从设计到发布的完整流程
 
 ---
 
 ## ⚡ 快速开始
 
-### 方式 1: 使用模板（最简单）
+### 1. 验证 Custom Agents
 
-```bash
-# 克隆这个仓库作为新项目的起点
-git clone https://github.com/wulien/vscode-workflow.git my-new-project
-cd my-new-project
-rm -rf .git
-git init
+打开 VS Code Copilot Chat，点击 **Agents 下拉菜单**，应该看到：
 
-# 打开 VS Code，告诉 Copilot
-code .
-# "按照 new-project Skill 启动项目"
+- 🆕 **@New-Project** — 启动新项目完整流程
+- 🔄 **@Iteration** — 迭代需求开发
+- ✅ **@TDD** — 测试驱动开发
+- 🔍 **@Code-Review** — 系统化代码审查
+- 💡 **@Brainstorming** — 需求探索 + 技术选型
+- 📝 **@Writing-Plans** — 生成详细实现计划
+
+### 2. 第一次使用
+
+```
+在 Copilot Chat 中输入:
+
+@New-Project 我想创建一个博客系统
 ```
 
-### 方式 2: 全局配置（推荐）
-
-一次设置，所有项目可用：
-
-```powershell
-# 1. 一次性全局设置
-pwsh .\setup-global-skills.ps1
-
-# 2. 在任何新项目中运行
-init-skills
-
-# 3. 开始使用
-code .
-# 告诉 Copilot: "按照 iteration Skill 开始开发"
+**自动工作流：**
+```
+1. @New-Project 分析需求
+   ↓
+2. Handoff → @Brainstorming (需求探索 + 技术选型)
+   ↓
+3. @New-Project 生成架构设计
+   ↓
+4. Handoff → @Writing-Plans (生成 TDD 实现计划)
+   ↓
+5. 选择执行: @TDD 或 Background Agent
 ```
 
-[📖 完整全局配置指南](./GLOBAL-SETUP.md)
+### 3. 迭代开发
+
+```
+@Iteration 实现用户登录功能
+  → @Writing-Plans (拆分任务)
+  → @TDD (逐任务实现)
+  → @Code-Review (审查)
+```
 
 ---
 
-## 📦 包含什么？
+## 📚 完整文档
 
-### 核心 Skills
+- 📘 [**完整最佳实践**](VSCode开发最佳实践完整流程.md) — 11 章节完整指南
+- 🚀 [**Custom Agents 整合指南**](docs/CUSTOM-AGENTS-INTEGRATION.md) — Agents 详细用法和工作流示例
+- 🎛️ [**Copilot Modes 指南**](docs/COPILOT-MODES-GUIDE.md) — Local/Background/Cloud 模式详解
+- 🌐 [**全局配置指南**](docs/GLOBAL-SETUP.md) — 一次配置，所有项目可用
 
-| Skill | 用途 | 触发方式 |
-|-------|------|----------|
-| **new-project** | 启动新项目完整流程 | "按照 new-project Skill 启动项目" |
-| **iteration** | 迭代需求开发 | "按照 iteration Skill 开始" |
-| **test-driven-development** | TDD 工作流 | Copilot 自动使用 |
-| **systematic-debugging** | 系统化调试 | "帮我调试这个 Bug" |
-| **code-review** | 代码审查 | "审查这段代码" |
-| **multi-agent-collaboration** | 多代理并行开发 | "并行开发这些模块" |
-| **finishing-work** | 完成合并流程 | "完成这个任务" |
-| **using-git-worktrees** | 多分支并行工作 | "使用 git worktrees" |
-| **writing-plans** | 编写实现计划 | "帮我写实现计划" |
-| **brainstorming** | 需求探索设计 | Copilot 自动调用 |
+### Skills 详细文档 (`.vscode/skills/`)
 
-### 配置文件
+**核心工作流：**
+- [新项目启动](.vscode/skills/new-project/SKILL.md) — 6 阶段完整流程
+- [迭代需求开发](.vscode/skills/iteration/SKILL.md) — 6 步敏捷迭代
+- [测试驱动开发](.vscode/skills/test-driven-development/SKILL.md) — RED-GREEN-REFACTOR
+- [系统化调试](.vscode/skills/systematic-debugging/SKILL.md) — 4 阶段根因分析
+- [代码审查](.vscode/skills/code-review/SKILL.md) — 多维度审查清单
+- [完成工作](.vscode/skills/finishing-work/SKILL.md) — 验证-合并-清理
 
-- `.github/copilot-instructions.md` — Copilot 会话引导
+**支持工具：**
+- [头脑风暴](.vscode/skills/brainstorming/SKILL.md) — 苏格拉底式提问
+- [编写计划](.vscode/skills/writing-plans/SKILL.md) — TDD 任务拆分
+- [多 Agent 协作](.vscode/skills/multi-agent-collaboration/SKILL.md) — 并行开发模式
+- [Git Worktrees](.vscode/skills/using-git-worktrees/SKILL.md) — 并行分支开发
+
+---
+
+## 🔥 核心功能
+
+### Custom Agents (快速访问)
+
+| Agent | 用途 | 示例 |
+|-------|------|------|
+| **@New-Project** | 新项目启动完整流程 | `@New-Project Todo 应用` |
+| **@Iteration** | 迭代需求开发 | `@Iteration 添加用户登录` |
+| **@TDD** | 严格测试驱动开发 | `@TDD 实现邮箱验证` |
+| **@Code-Review** | 系统化代码审查 | `@Code-Review 当前分支` |
+| **@Brainstorming** | 需求探索 + 技术选型 | `@Brainstorming 电商架构` |
+| **@Writing-Plans** | 生成详细实现计划 | `@Writing-Plans <设计文档>` |
+
+### 自动化工作流 (Handoffs)
+
+```
+@New-Project → @Brainstorming → @Writing-Plans → @TDD
+@Iteration → @Writing-Plans → @TDD → @Code-Review
+TDD → Code Review
+```
+
+### 多模式协作
+
+- **Local Agents** — 实时交互开发
+- **Background Agents** — 异步后台任务
+- **Cloud Agents** — GitHub PR 集成
+
+### VS Code 配置
+
+- `.github/copilot-instructions.md` — Copilot 总引导文件
+- `.github/agents/*.agent.md` — 6 个 Custom Agents
+- `.vscode/skills/*/SKILL.md` — 10 个详细 Skills 文档
 - `.vscode/workflows.json` — 6 个预定义工作流
 - `.vscode/tasks.json` — 常用开发任务
 - `.vscode/settings.json` — 推荐编辑器设置
@@ -80,61 +128,93 @@ code .
 
 ---
 
-## 🚀 使用示例
+## 🚀 实战示例
 
 ### 场景 1: 启动新项目
 
 ```
-你: "我要创建一个博客系统，使用 new-project Skill"
+你: @New-Project 我要创建一个博客系统
 
-Copilot:
-1. 进入头脑风暴阶段...
-2. 生成架构设计文档 → docs/plans/2026-02-09-blog-system.md
-3. 技术栈选型: Next.js + TypeScript + PostgreSQL
-4. 编写实现计划 → docs/plans/2026-02-09-blog-system-implementation.md
-5. 开始 TDD 实现...
+[自动工作流]
+1. @New-Project 分析需求
+   ↓
+2. Handoff → @Brainstorming
+   - 主动研究博客系统最佳实践
+   - 技术选型: Next.js + PostgreSQL + Markdown
+   - 生成设计文档 → docs/plans/2026-02-09-blog-system.md
+   ↓
+3. @New-Project 架构设计
+   ↓
+4. Handoff → @Writing-Plans
+   - 拆分为 25 个 TDD 任务
+   - 生成实现计划 → docs/plans/2026-02-09-blog-system-implementation.md
+   ↓
+5. 选择执行: @TDD 或 Background Agent
 ```
 
-### 场景 2: 开发新功能
+### 场景 2: 迭代开发
 
 ```
-你: "添加用户评论功能，用 iteration Skill"
+你: @Iteration 添加用户评论功能
 
-Copilot:
-1. 分析需求和影响范围
-2. 创建特性分支: feature/user-comments
-3. 生成实现计划（15 个 TDD 任务）
-4. 逐任务实现: 先测试 → 实现 → 验证 → 提交
-5. 代码审查
-6. 合并到 main
+[自动工作流]
+1. @Iteration 需求分析
+   - 创建分支: feature/user-comments
+   ↓
+2. Handoff → @Writing-Plans
+   - Task 1: 评论数据模型
+   - Task 2: 评论 API
+   - Task 3: 评论 UI
+   - ...
+   ↓
+3. Handoff → @TDD
+   对每个任务:
+   🔴 写测试 → ▶️ 确认失败 → 🟢 实现 → ✅ 通过 → 💾 提交
+   ↓
+4. Handoff → @Code-Review
+   - 审查变更
+   - 输出问题列表（Critical/Important/Minor）
+   ↓
+5. 修复问题 → 合并
 ```
 
-### 场景 3: 修复 Bug
+### 场景 3: Bug 修复
 
 ```
-你: "登录失败了，帮我调试"
+你: 发现 bug，登录时空密码也能提交
 
-Copilot (自动使用 systematic-debugging):
-1. 根因调查 → 收集错误日志
-2. 模式分析 → 对比正常登录流程
-3. 假设验证 → Token 过期检查失败
-4. TDD 修复:
-   - 编写测试重现 Bug
-   - 修复过期检查逻辑
-   - 验证所有测试通过
-5. 提交修复
+[工作流]
+1. 参考 systematic-debugging Skill
+   - Phase 1: 重现 bug
+   - Phase 2: 定位根因（验证逻辑缺失）
+   ↓
+2. @TDD 修复
+   🔴 test/auth.spec.ts: 测试空密码被拒绝
+   ▶️ 运行测试 → FAIL ✅
+   🟢 src/auth/validation.ts: 添加非空检查
+   ✅ 运行测试 → PASS ✅
+   💾 git commit -m "fix(auth): reject empty password"
+   ↓
+3. @Code-Review 验证修复
 ```
 
-### 场景 4: 多模块并行开发
+### 场景 4: 并行开发
 
 ```
-你: "同时开发用户、订单、支付三个模块"
+你: 同时开发用户、订单、支付三个模块
 
-Copilot (使用 multi-agent-collaboration):
-1. 建议使用 git worktrees
-2. 创建 3 个独立 worktrees
-3. 在 3 个 VS Code 窗口并行开发
-4. 每个模块独立 TDD
+[使用 Background Agents]
+1. @Iteration "实现用户模块"
+   → [点击 "委托到后台" handoff]
+   → Background Agent 1 在 worktree-1 中执行
+
+2. @Iteration "实现订单模块"
+   → Background Agent 2 在 worktree-2 中执行
+
+3. @Iteration "实现支付模块"
+   → Background Agent 3 在 worktree-3 中执行
+
+4. 所有 Agent 并行工作，完成后通知
 5. 完成后集成并测试
 ```
 
@@ -167,19 +247,89 @@ Copilot (使用 multi-agent-collaboration):
 
 ## 📚 文档
 
-- [📖 完整开发最佳实践](./VSCode开发最佳实践完整流程.md)
-- [🔧 全局配置指南](./GLOBAL-SETUP.md)
-- [💡 工作流定义](./vscode/workflows.json)
-- [🎯 Skills 目录](./.vscode/skills/)
+- [📖 **完整开发最佳实践**](./VSCode开发最佳实践完整流程.md) — 11 章节完整指南
+- [🚀 **Custom Agents 整合指南**](./docs/CUSTOM-AGENTS-INTEGRATION.md) — Agents 详细用法和工作流示例
+- [🎛️ **Copilot Modes 指南**](./docs/COPILOT-MODES-GUIDE.md) — Local/Background/Cloud 模式
+- [🔧 **全局配置指南**](./docs/GLOBAL-SETUP.md) — 一次配置所有项目
+- [📂 **Skills 目录**](./.vscode/skills/) — 10 个详细流程文档
 
 ---
 
-## 🛠 技术栈
+## 📞 文件结构
 
-- **VS Code** 1.109.0+ (支持多代理特性)
+```
+.
+├── .github/
+│   ├── copilot-instructions.md       # Copilot 总引导
+│   └── agents/                        # Custom Agents
+│       ├── new-project.agent.md
+│       ├── iteration.agent.md
+│       ├── tdd.agent.md
+│       ├── code-review.agent.md
+│       ├── brainstorming.agent.md
+│       └── writing-plans.agent.md
+│
+├── .vscode/
+│   ├── skills/                        # Skills 详细文档
+│   │   ├── new-project/SKILL.md
+│   │   ├── iteration/SKILL.md
+│   │   ├── test-driven-development/SKILL.md
+│   │   ├── systematic-debugging/SKILL.md
+│   │   ├── code-review/SKILL.md
+│   │   ├── brainstorming/SKILL.md
+│   │   ├── writing-plans/SKILL.md
+│   │   ├── finishing-work/SKILL.md
+│   │   ├── multi-agent-collaboration/SKILL.md
+│   │   └── using-git-worktrees/SKILL.md
+│   │
+│   ├── tasks.json                     # VS Code 任务
+│   ├── settings.json                  # 推荐设置
+│   ├── extensions.json                # 推荐插件
+│   └── workflows.json                 # 工作流定义
+│
+├── docs/
+│   ├── CUSTOM-AGENTS-INTEGRATION.md   # 整合指南
+│   ├── COPILOT-MODES-GUIDE.md         # 模式详解
+│   ├── GLOBAL-SETUP.md                # 全局配置
+│   └── plans/                         # 设计文档、实现计划
+│
+├── VSCode开发最佳实践完整流程.md
+├── README.md
+├── setup-global-skills.ps1        # 全局安装脚本
+└── update-global-skills.ps1       # 更新脚本
+```
+
+---
+
+## 🔧 技术要求
+
+- **VS Code** 1.109.0+ (支持 Custom Agents 和多 Agent 特性)
 - **GitHub Copilot** (Chat + Edits)
-- **Git** (支持 worktrees)
-- **PowerShell** (初始化脚本)
+- **Git** 2.25.0+ (支持 worktrees)
+- **PowerShell** 7.0+ (Windows) 或 Bash (macOS/Linux)
+
+---
+
+## 🐞 故障排查
+
+### Custom Agents 不出现在下拉菜单？
+
+1. 检查 VS Code 版本 >= 1.109.0
+2. 确认文件位置：`.github/agents/*.agent.md`
+3. 检查 YAML frontmatter 格式
+4. 重新加载 VS Code (`Ctrl+Shift+P` → `Reload Window`)
+
+### Handoffs 不工作？
+
+1. 检查 `agents` 字段包含目标 Agent 名称
+2. 确认 Agent 名称大小写正确
+3. 确认目标 Agent 文件存在
+
+### Skills 文档不生效？
+
+1. 检查 `.github/copilot-instructions.md` 存在
+2. 重启 Copilot Chat（关闭重开）
+3. 检查 Skills 文件路径正确
 
 ---
 
