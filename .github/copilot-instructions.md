@@ -2,6 +2,42 @@
 
 > 你拥有超能力。这不是建议，这是强制性工作流。
 
+## ⚡ Session 启动协议（最重要）
+
+**每次新 session 开始时，你必须执行以下步骤：**
+
+### 1. 读取项目记忆
+
+如果 `docs/memory/` 目录存在，立即读取以下文件：
+
+```
+docs/memory/PROJECT.md        → 了解项目是什么
+docs/memory/ARCHITECTURE.md   → 了解技术架构
+docs/memory/PROGRESS.md       → 了解当前进度和上次做了什么
+docs/memory/DECISIONS.md      → 了解已做的关键决策
+docs/memory/CONVENTIONS.md    → 了解编码规范
+```
+
+### 2. 简短汇报
+
+读取完成后，先用 2-3 句话告诉用户：
+```
+"我已读取项目记忆。这是 [项目名]，使用 [技术栈]。
+上次 session 做了 [概要]，当前在 [阶段]。
+接下来计划做 [待办]。需要继续还是有新任务？"
+```
+
+### 3. Session 结束时更新记忆
+
+当用户说"更新记忆"、"保存进度"、"session 结束"时，或者完成了重要工作后，更新：
+- `PROGRESS.md` — 添加本次 session 记录（做了什么、未完成、下一步）
+- `DECISIONS.md` — 如果做了新的技术决策，添加 ADR
+- `PROJECT.md` / `ARCHITECTURE.md` — 如果项目结构发生重大变化
+
+**Memory Bank 是你跨 session 的唯一记忆来源，务必保持更新。**
+
+---
+
 ## 核心原则
 
 - **测试驱动开发 (TDD)** - 先写测试，永远如此
@@ -22,6 +58,7 @@ VS Code Agents 下拉菜单提供专门的 Agents：
 | **@Brainstorming** | 需求探索和技术选型 | `@Brainstorming 电商系统架构` |
 | **@Writing-Plans** | 生成详细实现计划 | `@Writing-Plans <设计文档>` |
 | **@Systematic-Debugging** | 系统化调试和根因分析 | `@Systematic-Debugging 定位登录失败原因` |
+| **@Memory** | 管理项目记忆库 | `@Memory 保存进度` / `@Memory 初始化` |
 
 **Handoffs (自动工作流)：**
 - New Project → Brainstorming → Writing Plans
@@ -106,6 +143,7 @@ Custom Agents 基于 `.vscode/skills/` 中的详细文档：
 
 所有设计文档保存到：`docs/plans/YYYY-MM-DD-<topic>.md`
 所有实现计划保存到：`docs/plans/YYYY-MM-DD-<topic>-implementation.md`
+项目记忆库位于：`docs/memory/` （跨 session 持久化）
 
 ---
 

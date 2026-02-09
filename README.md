@@ -69,6 +69,7 @@
 - 📘 [**完整最佳实践**](VSCode开发最佳实践完整流程.md) — 11 章节完整指南
 - 🚀 [**Custom Agents 整合指南**](docs/CUSTOM-AGENTS-INTEGRATION.md) — Agents 详细用法和工作流示例
 - 🎛️ [**Copilot Modes 指南**](docs/COPILOT-MODES-GUIDE.md) — Local/Background/Cloud 模式详解
+- 🧠 [**Memory Bank 系统**](docs/memory/) — 跨 Session 项目记忆
 - 🌐 [**全局配置指南**](docs/GLOBAL-SETUP.md) — 一次配置，所有项目可用
 
 ### Skills 详细文档 (`.vscode/skills/`)
@@ -249,6 +250,7 @@ TDD → Code Review
 
 - [📖 **完整开发最佳实践**](./VSCode开发最佳实践完整流程.md) — 11 章节完整指南
 - [🚀 **Custom Agents 整合指南**](./docs/CUSTOM-AGENTS-INTEGRATION.md) — Agents 详细用法和工作流示例
+- [🧠 **Memory Bank 系统**](./docs/memory/) — 跨 Session 项目记忆
 - [🎛️ **Copilot Modes 指南**](./docs/COPILOT-MODES-GUIDE.md) — Local/Background/Cloud 模式
 - [🔧 **全局配置指南**](./docs/GLOBAL-SETUP.md) — 一次配置所有项目
 - [📂 **Skills 目录**](./.vscode/skills/) — 10 个详细流程文档
@@ -288,6 +290,12 @@ TDD → Code Review
 │   └── workflows.json                 # 工作流定义
 │
 ├── docs/
+│   ├── memory/                        # 🧠 Memory Bank (跨 Session 记忆)
+│   │   ├── PROJECT.md                 #   项目概述、技术栈
+│   │   ├── ARCHITECTURE.md            #   系统架构、模块设计
+│   │   ├── PROGRESS.md                #   当前进度、Session 记录
+│   │   ├── DECISIONS.md               #   技术决策记录 (ADR)
+│   │   └── CONVENTIONS.md             #   编码规范、命名约定
 │   ├── CUSTOM-AGENTS-INTEGRATION.md   # 整合指南
 │   ├── COPILOT-MODES-GUIDE.md         # 模式详解
 │   ├── GLOBAL-SETUP.md                # 全局配置
