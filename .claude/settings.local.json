@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:tsuji.tech)",
+      "WebFetch(domain:code.visualstudio.com)"
+    ]
+  }
+}

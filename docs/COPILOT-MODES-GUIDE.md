@@ -55,26 +55,26 @@
 1. **大规模代码迁移**
    ```
    你: "后台将所有 .js 文件迁移到 TypeScript"
-   
+
    Background Agent:
    - 分析 50 个文件
    - 逐个添加类型
    - 完成后通知你
-   
+
    你: 继续写其他代码（不被阻塞）
    ```
 
 2. **批量测试生成**
    ```
    你: "在后台为 src/ 下所有组件生成单元测试"
-   
+
    Background: 20 分钟后完成，生成 30 个测试文件
    ```
 
 3. **依赖分析**
    ```
    你: "后台分析项目中未使用的依赖"
-   
+
    Background: 扫描 node_modules，生成报告
    ```
 
@@ -106,7 +106,7 @@
 1. **使用 Skills 系统（强烈推荐）**
    ```
    你: "按照 new-project Skill 启动一个电商项目"
-   
+
    Cloud Agent:
    1. 调用 brainstorming Skill → 探索需求
    2. 生成架构设计文档
@@ -117,7 +117,7 @@
 2. **复杂问题调试**
    ```
    你: "用户登录后购物车数据丢失，帮我调试"
-   
+
    Cloud:
    1. 使用 systematic-debugging Skill
    2. 根因调查 → Session 管理问题
@@ -128,7 +128,7 @@
 3. **架构设计讨论**
    ```
    你: "设计一个高并发秒杀系统"
-   
+
    Cloud:
    - 分析需求（QPS, 库存扣减）
    - 提出多种方案（Redis 锁 vs MQ vs 分布式锁）
@@ -139,7 +139,7 @@
 4. **学习新技术**
    ```
    你: "解释 React Server Components 的工作原理"
-   
+
    Cloud: 深度讲解 + 代码示例
    ```
 
@@ -166,7 +166,7 @@
   → Cloud 在聊天中指导每个任务
   → 你在编辑器写代码
   → Local 提供实时补全
-  
+
 阶段 3: 测试（Cloud）
   → Cloud 帮你写测试
   → Local 补全断言代码
@@ -182,11 +182,11 @@
 步骤 1: 快速定位（Cloud）
   → "这段代码报错了，帮我看看"
   → Cloud 分析错误
-  
+
 步骤 2: 修复（Local）
   → Cloud 建议修复方案
   → 你手动修改，Local 补全
-  
+
 步骤 3: 验证（Cloud）
   → Cloud 帮你写测试验证修复
 ```
@@ -201,7 +201,7 @@
 执行（Background）:
   → "在后台执行重构计划的前 5 个任务"
   → Background 异步执行
-  
+
 验证（Cloud）:
   → Background 完成后，Cloud 审查结果
   → 运行测试确认
@@ -212,16 +212,16 @@
 ```
 控制器（Cloud - 主聊天）:
   → "使用 multi-agent-collaboration 并行开发 3 个模块"
-  
+
 Agent 1（Cloud - Chat 1）:
   → "实现用户模块"
-  
+
 Agent 2（Cloud - Chat 2）:
   → "实现订单模块"
-  
+
 Agent 3（Background）:
   → "后台生成所有模块的测试"
-  
+
 编码（Local）:
   → 在每个模块文件编码时，Local 提供补全
 ```
@@ -310,7 +310,7 @@ Agent 3（Background）:
 
 聊天面板右上角会显示：
 - `@local` - 本地模式
-- `@cli` / Background - 后台模式  
+- `@cli` / Background - 后台模式
 - `@cloud` - 云端模式
 
 ---
