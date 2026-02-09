@@ -15,7 +15,7 @@
 
 **在任何任务之前，你必须检查是否有相关的 Skill：**
 
-1. 启动新项目？→ 使用 `skills/new-project/` 
+1. 启动新项目？→ 使用 `skills/new-project/`
 2. 迭代需求？→ 使用 `skills/iteration/`
 3. 编写代码？→ 使用 `skills/test-driven-development/`
 4. 调试问题？→ 使用 `skills/systematic-debugging/`
@@ -28,6 +28,7 @@
 新项目：brainstorming → 架构设计 → writing-plans → 搭建工程 → 开始开发
 迭代需求：需求分析 → 创建分支 → writing-plans → TDD实现 → 代码审查 → 合并发布
 Bug修复：systematic-debugging → TDD修复 → 验证 → 合并
+多任务并行：using-git-worktrees → 并行分支开发
 ```
 
 ## 必须遵循的规则

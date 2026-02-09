@@ -1,0 +1,237 @@
+{
+  "version": "1.0.0",
+  "workflows": [
+    {
+      "name": "新项目启动",
+      "description": "从零开始创建新项目的完整流程",
+      "trigger": "manual",
+      "steps": [
+        {
+          "name": "头脑风暴",
+          "type": "skill",
+          "skill": "brainstorming",
+          "description": "探索需求和技术方案"
+        },
+        {
+          "name": "架构设计",
+          "type": "manual",
+          "description": "确认架构设计并生成设计文档"
+        },
+        {
+          "name": "编写实现计划",
+          "type": "skill",
+          "skill": "writing-plans",
+          "description": "将设计拆分为可执行的 TDD 任务"
+        },
+        {
+          "name": "项目脚手架",
+          "type": "manual",
+          "description": "生成项目结构、配置文件、基础代码"
+        },
+        {
+          "name": "初始化 Git",
+          "type": "shell",
+          "command": "git init && git add . && git commit -m 'Initial commit'"
+        },
+        {
+          "name": "开始开发",
+          "type": "skill",
+          "skill": "test-driven-development",
+          "description": "按计划逐任务执行"
+        }
+      ]
+    },
+    {
+      "name": "迭代需求开发",
+      "description": "在现有项目中开发新功能",
+      "trigger": "manual",
+      "steps": [
+        {
+          "name": "准备工作",
+          "type": "shell",
+          "command": "git checkout main && git pull origin main"
+        },
+        {
+          "name": "需求分析",
+          "type": "manual",
+          "description": "分析需求、识别影响范围、确认设计方案"
+        },
+        {
+          "name": "创建特性分支",
+          "type": "shell",
+          "command": "git checkout -b feature/[feature-name]"
+        },
+        {
+          "name": "编写实现计划",
+          "type": "skill",
+          "skill": "writing-plans",
+          "description": "生成详细的 TDD 实现任务"
+        },
+        {
+          "name": "TDD 实现",
+          "type": "skill",
+          "skill": "test-driven-development",
+          "description": "RED → GREEN → REFACTOR → COMMIT"
+        },
+        {
+          "name": "运行完整测试",
+          "type": "task",
+          "task": "test"
+        },
+        {
+          "name": "自我审查",
+          "type": "skill",
+          "skill": "code-review",
+          "description": "AI 代码审查"
+        },
+        {
+          "name": "完成合并",
+          "type": "skill",
+          "skill": "finishing-work",
+          "description": "验证 → 合并 → 清理"
+        }
+      ]
+    },
+    {
+      "name": "Bug 修复",
+      "description": "系统化调试和修复流程",
+      "trigger": "manual",
+      "steps": [
+        {
+          "name": "创建修复分支",
+          "type": "shell",
+          "command": "git checkout -b fix/[bug-description]"
+        },
+        {
+          "name": "系统化调试",
+          "type": "skill",
+          "skill": "systematic-debugging",
+          "description": "根因调查 → 模式分析 → 假设验证"
+        },
+        {
+          "name": "编写失败测试",
+          "type": "manual",
+          "description": "写一个能重现 Bug 的测试"
+        },
+        {
+          "name": "TDD 修复",
+          "type": "skill",
+          "skill": "test-driven-development",
+          "description": "实现修复 → 测试通过"
+        },
+        {
+          "name": "运行完整测试",
+          "type": "task",
+          "task": "test"
+        },
+        {
+          "name": "完成合并",
+          "type": "skill",
+          "skill": "finishing-work"
+        }
+      ]
+    },
+    {
+      "name": "代码重构",
+      "description": "在保持行为不变的前提下改善代码质量",
+      "trigger": "manual",
+      "steps": [
+        {
+          "name": "创建重构分支",
+          "type": "shell",
+          "command": "git checkout -b refactor/[component-name]"
+        },
+        {
+          "name": "确保测试覆盖",
+          "type": "manual",
+          "description": "确认现有测试充分覆盖要重构的代码"
+        },
+        {
+          "name": "运行基线测试",
+          "type": "task",
+          "task": "test"
+        },
+        {
+          "name": "小步重构",
+          "type": "manual",
+          "description": "每次小改动 → 运行测试 → 提交"
+        },
+        {
+          "name": "代码审查",
+          "type": "skill",
+          "skill": "code-review"
+        },
+        {
+          "name": "完成合并",
+          "type": "skill",
+          "skill": "finishing-work"
+        }
+      ]
+    },
+    {
+      "name": "多代理并行开发",
+      "description": "大任务分解为多个独立子任务并行处理",
+      "trigger": "manual",
+      "steps": [
+        {
+          "name": "任务分解",
+          "type": "manual",
+          "description": "识别可以并行的独立域/模块"
+        },
+        {
+          "name": "并行分派",
+          "type": "skill",
+          "skill": "multi-agent-collaboration",
+          "description": "为每个域创建独立 Agent"
+        },
+        {
+          "name": "审查和集成",
+          "type": "manual",
+          "description": "检查每个 Agent 的输出 → 运行完整测试 → 集成"
+        },
+        {
+          "name": "完成合并",
+          "type": "skill",
+          "skill": "finishing-work"
+        }
+      ]
+    },
+    {
+      "name": "发布准备",
+      "description": "准备生产环境发布",
+      "trigger": "manual",
+      "steps": [
+        {
+          "name": "版本号更新",
+          "type": "manual",
+          "description": "更新 package.json 版本号"
+        },
+        {
+          "name": "运行完整测试套件",
+          "type": "task",
+          "task": "test"
+        },
+        {
+          "name": "运行构建",
+          "type": "task",
+          "task": "build"
+        },
+        {
+          "name": "更新 CHANGELOG",
+          "type": "manual",
+          "description": "记录本次发布的变更"
+        },
+        {
+          "name": "创建 Git Tag",
+          "type": "shell",
+          "command": "git tag -a v[x.y.z] -m 'Release v[x.y.z]'"
+        },
+        {
+          "name": "推送到远程",
+          "type": "shell",
+          "command": "git push origin main --tags"
+        }
+      ]
+    }
+  ]
+}

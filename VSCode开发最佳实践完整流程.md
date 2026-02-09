@@ -368,15 +368,15 @@ describe('UserService', () => {
 ```
 1. 主对话（Cloud Agent）：
    "分析 UserModule 的重构方案"
-   
+
 2. 委托给专门代理：
    "将数据库迁移任务委托给后台代理"
-   
+
 3. 同时进行：
    - 本地代理：处理简单的变量重命名
    - 云端代理：设计新的架构
    - 后台代理：执行数据迁移脚本
-   
+
 4. 汇总结果：
    "总结所有代理的工作结果和下一步行动"
 ```
@@ -568,15 +568,15 @@ describe('calculateDiscount', () => {
   it('should apply 10% discount for regular customers', () => {
     expect(calculateDiscount(100, 'regular')).toBe(90);
   });
-  
+
   it('should apply 20% discount for VIP customers', () => {
     expect(calculateDiscount(100, 'vip')).toBe(80);
   });
-  
+
   it('should handle zero price', () => {
     expect(calculateDiscount(0, 'regular')).toBe(0);
   });
-  
+
   it('should throw error for negative price', () => {
     expect(() => calculateDiscount(-10, 'regular')).toThrow();
   });
@@ -1164,11 +1164,11 @@ cp .github/copilot-instructions.md <你的项目>/.github/copilot-instructions.m
 
 这套最佳实践流程结合了 VS Code 1.109.0 的最新 AI 代理特性，能够帮助你：
 
-✅ **提升效率** - 通过 AI 协作减少 50% 的重复性工作  
-✅ **保证质量** - 自动化检查确保代码高质量  
-✅ **快速学习** - AI 助手加速新技术掌握  
-✅ **团队协作** - 标准化流程提升团队效率  
-✅ **持续改进** - 定期回顾和优化工作流程  
+✅ **提升效率** - 通过 AI 协作减少 50% 的重复性工作
+✅ **保证质量** - 自动化检查确保代码高质量
+✅ **快速学习** - AI 助手加速新技术掌握
+✅ **团队协作** - 标准化流程提升团队效率
+✅ **持续改进** - 定期回顾和优化工作流程
 
 **记住：工具只是辅助，关键在于持续实践和改进！**
 
