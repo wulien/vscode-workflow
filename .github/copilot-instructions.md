@@ -83,6 +83,8 @@ Custom Agents 基于 `.vscode/skills/` 中的详细文档：
 - 编写计划：`.vscode/skills/writing-plans/SKILL.md`
 - 并行开发：`.vscode/skills/using-git-worktrees/SKILL.md`
 - 多 Agent：`.vscode/skills/multi-agent-collaboration/SKILL.md`
+- 多仓库工作区：`.vscode/skills/multi-repo-workspace/SKILL.md`
+- 项目记忆：`.vscode/skills/memory-bank/SKILL.md`
 
 ## 工作流速查
 

@@ -166,7 +166,7 @@ docs/memory/
 
 ```
 @Memory 保存进度          → 更新 PROGRESS.md
-@Memory 记录决策          → 添加 ADR 到 DECISIONS.md  
+@Memory 记录决策          → 添加 ADR 到 DECISIONS.md
 @Memory 更新架构          → 更新 ARCHITECTURE.md
 @Memory 查看当前状态      → 读取并汇总所有记忆文件
 @Memory 初始化            → 填充模板文件
@@ -191,7 +191,7 @@ docs/memory/
 
 ### Q: 记忆文件太大了？
 
-**A:** 
+**A:**
 - `PROGRESS.md`: 只保留最近 10-15 条 session 记录
 - `DECISIONS.md`: 已废弃的 ADR 标记为 `已废弃` 但保留
 - 其他文件: 保持精简，指向代码而不是复制代码
