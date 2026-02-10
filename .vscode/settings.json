@@ -54,7 +54,7 @@
   "git.enableSmartCommit": true,
 
   // ===== 终端 =====
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.fontSize": 14,
 
   // ===== Copilot =====
